@@ -5,12 +5,6 @@ import {
   Linkedin,
   Github,
   Globe,
-  FileSpreadsheet,
-  ShieldAlert,
-  Server,
-  Terminal,
-  Cpu,
-  Lock,
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { BreadcrumbStructuredData } from "@/components/StructuredData";
@@ -129,25 +123,18 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Architecture & Privacy Notice Card */}
+          {/* Helpful Tips Card */}
           <div className="rounded-2xl border border-white/10 bg-[#0a0f1c]/90 backdrop-blur-md p-6 space-y-4 text-xs text-slate-400 leading-relaxed">
-            <div className="flex items-center gap-2 font-semibold text-white text-sm">
-              <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
-              <span>Contact API & Excel Ledger Architecture</span>
-            </div>
+            <h4 className="font-semibold text-white text-sm">
+              Bug Reports & Feature Requests
+            </h4>
             <p>
-              Submissions sent through this form use a transparent forwarding pipeline:
+              When reporting issues or proposing enhancements for Serve Locally, providing details helps resolve them quickly:
             </p>
-            <ul className="space-y-2 list-disc list-inside">
-              <li>
-                <strong className="text-slate-200">Local PC Storage:</strong> Forwarded securely via configurable <code className="text-brand-300 font-mono text-[11px]">CONTACT_API_URL</code> to the developer&apos;s personal PC receiver service.
-              </li>
-              <li>
-                <strong className="text-slate-200">Formula Injection Sanitization:</strong> All inputs starting with <code className="text-slate-300 font-mono text-[11px]">=, +, -, @, \t, \r</code> are prepended with an apostrophe to prevent CSV/Excel formula injection.
-              </li>
-              <li>
-                <strong className="text-slate-200">Honest Offline Status:</strong> If the local computer is powered off or disconnected, the system never fakes a successful submission and transparently guides you to direct email.
-              </li>
+            <ul className="space-y-2 list-disc list-inside text-slate-400">
+              <li>Your Windows version (Windows 11 or Windows 10 build)</li>
+              <li>Relevant service (Nginx, PHP, MariaDB, or Mailpit)</li>
+              <li>Any console error messages or port conflicts encountered</li>
             </ul>
           </div>
         </div>

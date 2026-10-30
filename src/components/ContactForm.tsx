@@ -9,7 +9,6 @@ import {
   AlertCircle,
   Loader2,
   Mail,
-  FileSpreadsheet,
 } from "lucide-react";
 
 const formSchema = z.object({
@@ -270,13 +269,8 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Footer info: Excel storage notice & Submit button */}
-        <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-[11px] text-slate-400">
-            <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>Direct Excel ledger logging with formula injection defense</span>
-          </div>
-
+        {/* Submit button */}
+        <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
           <button
             type="submit"
             disabled={status === "loading"}
@@ -285,7 +279,7 @@ export function ContactForm() {
             {status === "loading" ? (
               <>
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                <span>Recording Submission...</span>
+                <span>Sending Message...</span>
               </>
             ) : (
               <>
