@@ -80,12 +80,53 @@ export function ContactForm() {
     setStatusMessage("");
     setOfflineNotice(false);
 
+    const submissionPayload = {
+      id: `SUB-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`,
+      createdAt: new Date().toISOString(),
+      name: data.name,
+      email: data.email,
+      category: data.category,
+      subject: data.subject,
+      message: data.message,
+    };
+
+    const webhookUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL?.trim();
+
     try {
+      if (webhookUrl) {
+        // Direct browser delivery to configured webhook (Google Sheets / ngrok / Formspree)
+        const res = await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submissionPayload),
+          mode: "no-cors", // Allows cross-origin Google Apps Script endpoints
+        });
+
+        setStatus("success");
+        setSubmissionId(submissionPayload.id);
+        setStatusMessage(
+          "Your message was successfully received and logged to the sheet."
+        );
+        reset();
+        return;
+      }
+
+      // Default local API endpoint (when running locally or with Node server)
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
+      // On static GitHub Pages, /api/contact returns 404 or 405 because there is no Node backend
+      if (res.status === 404 || res.status === 405) {
+        setStatus("error");
+        setOfflineNotice(true);
+        setStatusMessage(
+          "This static GitHub Pages site is not currently connected to an external webhook. Please send your message directly via email below."
+        );
+        return;
+      }
 
       const resData = await res.json();
 
@@ -112,7 +153,7 @@ export function ContactForm() {
     } catch (err: any) {
       setStatus("error");
       setStatusMessage(
-        "Network connection error while contacting the server. Please verify your connection."
+        "Network connection error while contacting the server. Please verify your connection or email directly."
       );
     }
   };
