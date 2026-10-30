@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #080c14;
@@ -12,17 +10,12 @@
   --accent-green: #10b981;
 }
 
-@layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  body {
-    background-color: #080c14;
-    color: #f1f5f9;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
+body {
+  background-color: #080c14;
+  color: #f1f5f9;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
@@ -94,4 +87,3 @@
   font-size: 0.85em;
   color: #38bdf8;
 }
-

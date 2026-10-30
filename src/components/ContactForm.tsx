@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import {
   Send,
@@ -10,10 +9,7 @@ import {
   AlertCircle,
   Loader2,
   Mail,
-  HelpCircle,
   FileSpreadsheet,
-  ShieldCheck,
-  ExternalLink,
 } from "lucide-react";
 
 const formSchema = z.object({
@@ -42,6 +38,22 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// Custom pure Zod resolver for React Hook Form
+const zodResolverCustom = (schema: typeof formSchema) => async (data: any) => {
+  const result = schema.safeParse(data);
+  if (result.success) {
+    return { values: result.data, errors: {} };
+  }
+  const errors: Record<string, any> = {};
+  for (const issue of result.error.issues) {
+    const path = issue.path[0] as string;
+    if (!errors[path]) {
+      errors[path] = { type: issue.code, message: issue.message };
+    }
+  }
+  return { values: {}, errors };
+};
+
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
@@ -57,7 +69,7 @@ export function ContactForm() {
     reset,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolverCustom(formSchema),
     defaultValues: {
       category: "General Inquiry",
       companyWebsite: "",
@@ -175,11 +187,12 @@ export function ContactForm() {
               type="text"
               placeholder="e.g. Alex Smith"
               {...register("name")}
-              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${errors.name ? "border-rose-500" : "border-white/10"
-                }`}
+              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${
+                errors.name ? "border-rose-500" : "border-white/10"
+              }`}
             />
             {errors.name && (
-              <p className="text-[11px] text-rose-400">{errors.name.message}</p>
+              <p className="text-[11px] text-rose-400">{errors.name.message as string}</p>
             )}
           </div>
 
@@ -191,11 +204,12 @@ export function ContactForm() {
               type="email"
               placeholder="alex@domain.com"
               {...register("email")}
-              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${errors.email ? "border-rose-500" : "border-white/10"
-                }`}
+              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${
+                errors.email ? "border-rose-500" : "border-white/10"
+              }`}
             />
             {errors.email && (
-              <p className="text-[11px] text-rose-400">{errors.email.message}</p>
+              <p className="text-[11px] text-rose-400">{errors.email.message as string}</p>
             )}
           </div>
         </div>
@@ -226,12 +240,13 @@ export function ContactForm() {
               type="text"
               placeholder="Brief summary of inquiry"
               {...register("subject")}
-              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${errors.subject ? "border-rose-500" : "border-white/10"
-                }`}
+              className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${
+                errors.subject ? "border-rose-500" : "border-white/10"
+              }`}
             />
             {errors.subject && (
               <p className="text-[11px] text-rose-400">
-                {errors.subject.message}
+                {errors.subject.message as string}
               </p>
             )}
           </div>
@@ -246,11 +261,12 @@ export function ContactForm() {
             rows={5}
             placeholder="Type your message, issue details, or feature feedback..."
             {...register("message")}
-            className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${errors.message ? "border-rose-500" : "border-white/10"
-              }`}
+            className={`w-full px-3.5 py-2.5 rounded-xl bg-surface-100/70 border text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-brand-400 transition-colors ${
+              errors.message ? "border-rose-500" : "border-white/10"
+            }`}
           ></textarea>
           {errors.message && (
-            <p className="text-[11px] text-rose-400">{errors.message.message}</p>
+            <p className="text-[11px] text-rose-400">{errors.message.message as string}</p>
           )}
         </div>
 
@@ -283,4 +299,3 @@ export function ContactForm() {
     </div>
   );
 }
-

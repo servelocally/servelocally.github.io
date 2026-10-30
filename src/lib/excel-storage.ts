@@ -1,4 +1,3 @@
-import ExcelJS from "exceljs";
 import path from "path";
 import fs from "fs";
 
@@ -33,20 +32,19 @@ export function sanitizeForExcel(value: string | undefined | null): string {
  * Creates the workbook and directory if they do not exist.
  */
 export async function appendSubmissionToExcel(
-  submission: ContactSubmission,
-  customPath?: string
+  submission: ContactSubmission
 ): Promise<{ success: boolean; filePath: string }> {
-  // Store outside public web directory
-  const filePath =
-    customPath ||
-    process.env.CONTACT_STORAGE_PATH ||
-    path.join(process.cwd(), "storage", "contact_submissions.xlsx");
+  // Statically scoped path inside process.cwd() storage directory
+  const storageDir = path.join(process.cwd(), "storage");
+  const filePath = path.join(storageDir, "contact_submissions.xlsx");
 
-  const dir = path.dirname(filePath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(storageDir)) {
+    fs.mkdirSync(storageDir, { recursive: true });
   }
 
+  // Dynamic import of exceljs with serverExternalPackages
+  const ExcelJSModule = await import("exceljs");
+  const ExcelJS = ExcelJSModule.default || ExcelJSModule;
   const workbook = new ExcelJS.Workbook();
   const sheetName = "Submissions";
 
@@ -79,7 +77,7 @@ export async function appendSubmissionToExcel(
     headerRow.fill = {
       type: "pattern",
       pattern: "solid",
-      fgColor: { argb: "FF0E1726" }, // Dark developer slate
+      fgColor: { argb: "FF0E1726" },
     };
     headerRow.alignment = { vertical: "middle", horizontal: "left" };
     headerRow.height = 26;
@@ -115,4 +113,3 @@ export async function appendSubmissionToExcel(
 
   return { success: true, filePath };
 }
-

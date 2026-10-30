@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  serverExternalPackages: ["exceljs"],
 };
 
 export default nextConfig;
-
