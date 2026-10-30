@@ -193,6 +193,41 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Legal & Trademark Nominative Fair Use Notice */}
+        <div className="mt-12 pt-8 border-t border-white/5 space-y-4 text-[11px] text-slate-500 leading-relaxed">
+          <div className="p-4 rounded-xl bg-surface-100/40 border border-white/5 space-y-2">
+            <h5 className="font-semibold text-slate-400 uppercase tracking-wider text-[10px]">
+              Trademarks & Nominative Fair Use Disclaimer
+            </h5>
+            <p>
+              All product names, logos, brands, trademarks, and registered trademarks mentioned on this website belong to their respective holders in the United States, European Union, and other jurisdictions.
+              <strong className="text-slate-400"> XAMPP</strong> is a registered trademark of Apache Friends.
+              <strong className="text-slate-400"> Laragon</strong> is a trademark of Leo Khoa.
+              <strong className="text-slate-400"> WampServer</strong> is an open-source project by Romain Bourdon and Hervé Leclerc.
+              <strong className="text-slate-400"> Windows, Windows 10, Windows 11</strong>, and <strong className="text-slate-400">Microsoft Edge WebView2</strong> are trademarks or registered trademarks of Microsoft Corporation.
+              <strong className="text-slate-400"> MariaDB</strong> is a trademark of MariaDB Foundation.
+              <strong className="text-slate-400"> MySQL</strong> is a registered trademark of Oracle Corporation and/or its affiliates.
+              <strong className="text-slate-400"> Nginx</strong> is a registered trademark of F5, Inc.
+              <strong className="text-slate-400"> PHP</strong> is a copyright of The PHP Group.
+            </p>
+            <p>
+              All references to third-party software, trademarks, and brand names are made strictly for descriptive, comparative, and nominative identification purposes to inform developers about software architecture and technical compatibility.
+              Serve Locally is an independent project developed by Khushwinder and is not affiliated with, endorsed by, certified by, or sponsored by any of the trademark owners listed above.
+            </p>
+            <div className="pt-1 text-[10px] text-slate-600 flex flex-wrap gap-x-4 gap-y-1">
+              <span>Upstream Open Source Licenses: Nginx (2-clause BSD)</span>
+              <span>•</span>
+              <span>PHP (PHP License v3.01)</span>
+              <span>•</span>
+              <span>MariaDB (GNU GPL v2)</span>
+              <span>•</span>
+              <span>Mailpit (MIT)</span>
+              <span>•</span>
+              <span>Tauri / Rust (MIT / Apache 2.0)</span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">

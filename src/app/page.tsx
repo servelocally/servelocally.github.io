@@ -130,8 +130,8 @@ export default function HomePage() {
             Why developers are switching from legacy stacks
           </p>
           <p className="text-slate-400 text-sm sm:text-base">
-            Modern development demands speed and cleanliness. Traditional stacks
-            like XAMPP clutter your system registry and lock ports with zombie processes.
+            Modern development demands speed and cleanliness. Traditional monolithic
+            stacks rely on background Windows services and manual process polling that can leave ports locked after exit.
           </p>
         </div>
 

@@ -11,6 +11,8 @@ export function SoftwareStructuredData() {
     "softwareVersion": "1.0.0",
     "fileSize": "64.1 MB",
     "downloadUrl": "https://servelocally.github.io/downloads/ServeLocally-Setup.exe",
+    "screenshot": "https://servelocally.github.io/images/servelocally-app-ui.png",
+    "thumbnailUrl": "https://servelocally.github.io/images/logo.png",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -63,6 +65,32 @@ export function WebsiteStructuredData() {
       "name": "Khushwinder",
       "url": "https://khushwinder-dev.github.io"
     }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function FaqStructuredData({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[];
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
   };
 
   return (

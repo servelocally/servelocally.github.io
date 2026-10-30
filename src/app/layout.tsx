@@ -31,11 +31,17 @@ export const metadata: Metadata = {
     "ServeLocally",
     "local development environment",
     "XAMPP alternative",
+    "XAMPP alternative Windows 11",
     "Laragon alternative",
+    "Laragon alternative 2026",
     "WampServer alternative",
     "Windows local server",
-    "portable Nginx PHP MySQL",
+    "lightweight local server Windows",
+    "portable Nginx PHP MariaDB",
+    "Windows 11 local development",
     "Tauri local server",
+    "Win32 Job Object process supervisor",
+    "zero zombie process local server",
     "Mailpit Windows",
     "PHP version switcher",
     "virtual hosts test domains",
@@ -54,9 +60,15 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Serve Locally — Ultra-Lightweight Windows Local Dev Environment",
     description:
-      "Modern, bloat-free alternative to XAMPP and Laragon built with Tauri v2 & Rust. Win32 Job Objects prevent orphan zombie processes. < 25 MB idle RAM.",
+      "Modern, bloat-free local web development environment built with Tauri v2 & Rust. Win32 Job Objects prevent orphan zombie processes. < 25 MB idle RAM.",
     siteName: "Serve Locally",
     images: [
+      {
+        url: "/images/servelocally-app-ui.png",
+        width: 562,
+        height: 779,
+        alt: "Serve Locally Windows 11 Fluent Dark UI Dashboard",
+      },
       {
         url: "/images/logo.png",
         width: 256,
@@ -71,7 +83,7 @@ export const metadata: Metadata = {
     description:
       "Native Windows 11 Fluent dark UI, Nginx, PHP 8.1-8.4, MariaDB, and Mailpit with zero Windows services under 25 MB RAM.",
     creator: "@KhushwinderDev",
-    images: ["/images/logo.png"],
+    images: ["/images/servelocally-app-ui.png"],
   },
   robots: {
     index: true,

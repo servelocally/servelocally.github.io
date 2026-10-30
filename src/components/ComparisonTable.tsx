@@ -13,8 +13,8 @@ export function ComparisonTable() {
     {
       feature: "Zombie Process Prevention",
       serveLocally: "Win32 Job Object (KILL_ON_JOB_CLOSE)",
-      xampp: "None (Orphans easily, locks ports)",
-      laragon: "Partial (Process polling)",
+      xampp: "Manual termination (Process orphan risk)",
+      laragon: "User-space process polling",
       highlight: true,
     },
     {
@@ -39,16 +39,16 @@ export function ComparisonTable() {
       highlight: false,
     },
     {
-      feature: "Modern Desktop UI",
-      serveLocally: "Windows 11 Fluent Dark (Mica)",
-      xampp: "Legacy Windows Forms (2004)",
-      laragon: "Legacy Delphi 7",
+      feature: "Desktop UI & Modern Runtime",
+      serveLocally: "Tauri v2 + WebView2 (Fluent Dark)",
+      xampp: "WinForms (.NET Framework)",
+      laragon: "Native Win32 (Delphi)",
       highlight: false,
     },
     {
       feature: "Email Testing Sandbox",
       serveLocally: "Mailpit Built-in (:1025 SMTP / :8025 Web UI)",
-      xampp: "Fake sendmail / Mercury",
+      xampp: "Sendmail / Mercury Mail",
       laragon: "MailHog / Mailer",
       highlight: false,
     },
