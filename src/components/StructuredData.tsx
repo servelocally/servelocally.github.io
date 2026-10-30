@@ -80,10 +80,11 @@ export function FaqStructuredData({
 }: {
   faqs: { question: string; answer: string }[];
 }) {
+  const list = Array.isArray(faqs) ? faqs : [];
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
+    "mainEntity": list.map((faq) => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {

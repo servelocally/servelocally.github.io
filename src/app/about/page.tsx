@@ -99,6 +99,30 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+
+        {/* Visual Showcase Card */}
+        <div className="p-6 rounded-2xl bg-[#090d18] border border-white/10 flex flex-col md:flex-row items-center gap-6 mt-4">
+          <div className="w-full md:w-48 shrink-0 flex justify-center">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl max-w-[200px]">
+              <Image
+                src="/images/servelocally-app-ui.png"
+                alt="Serve Locally desktop app interface on Windows 11"
+                width={562}
+                height={779}
+                quality={90}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+          <div className="space-y-2 text-xs text-slate-300">
+            <h3 className="font-semibold text-white text-sm">
+              Authentic Production Implementation
+            </h3>
+            <p className="text-slate-400 leading-relaxed">
+              Serve Locally was built because developer machines deserve clean, bloat-free tools. The screenshot shows the real application running with MariaDB and active PHP 8.3 consuming just 12.5 MB RAM — proving that a fully featured local stack doesn&apos;t require hundreds of megabytes of background overhead.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Developer Profile Card */}

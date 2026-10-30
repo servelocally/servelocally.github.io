@@ -20,9 +20,11 @@ import {
   Workflow,
   ExternalLink,
 } from "lucide-react";
-import { AppShowcase } from "@/components/AppShowcase";
+import { HeroShowcase } from "@/components/HeroShowcase";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { FAQS } from "@/data/faqs";
+import { FaqStructuredData } from "@/components/StructuredData";
 
 export const metadata = {
   title: "Serve Locally — Your Local Development Environment. Simplified.",
@@ -33,6 +35,8 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="space-y-24 sm:space-y-32 pb-20">
+      <FaqStructuredData faqs={FAQS} />
+
       {/* 1. HERO SECTION */}
       <section className="relative pt-12 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient Background Glows */}
@@ -108,14 +112,9 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Interactive Desktop Application Showcase */}
+          {/* Desktop Application Showcase (Authentic Screenshot & Simulator) */}
           <div className="pt-8">
-            <div className="text-center pb-4">
-              <span className="text-xs uppercase tracking-wider text-slate-500 font-mono">
-                Interactive Live Preview (Try Clicking Tabs & Switches)
-              </span>
-            </div>
-            <AppShowcase />
+            <HeroShowcase />
           </div>
         </div>
       </section>

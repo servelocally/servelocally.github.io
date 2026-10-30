@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ShieldCheck,
   Cpu,
@@ -17,6 +18,8 @@ import {
   RefreshCw,
   Sparkles,
   Lock,
+  CheckCircle2,
+  Maximize2,
 } from "lucide-react";
 import { BreadcrumbStructuredData } from "@/components/StructuredData";
 
@@ -50,6 +53,80 @@ export default function FeaturesPage() {
           legacy stacks: orphaned processes, bloated memory, messy config files, and broken mail.
         </p>
       </div>
+
+      {/* Visual Application Tour & Interface Showcase */}
+      <section className="p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-[#0e1628] to-[#070b14] border border-white/10 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#0a0e1a] max-w-[340px] w-full">
+              <Image
+                src="/images/servelocally-app-ui.png"
+                alt="Serve Locally Native Windows 11 Fluent Interface running Nginx, PHP, MariaDB, and Mailpit"
+                width={562}
+                height={779}
+                quality={95}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-400/20 text-xs font-mono text-brand-300 mb-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Unified Windows 11 Desktop Control</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Designed for Focus, Speed & Control
+              </h2>
+              <p className="text-sm text-slate-300 mt-2 leading-relaxed">
+                The Serve Locally dashboard provides a single, high-density control center for your entire local web development stack. No hunting through config files or command lines.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-3.5 rounded-xl bg-surface-100/60 border border-white/5 space-y-1">
+                <span className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-brand-400" />
+                  Quick Action Toolbar
+                </span>
+                <p className="text-slate-400 text-[11px] leading-normal">
+                  1-click access to open WebRoot folder, launch Mailpit web inbox, open phpMyAdmin, and sync system hosts.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-100/60 border border-white/5 space-y-1">
+                <span className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  Live RAM & Process Telemetry
+                </span>
+                <p className="text-slate-400 text-[11px] leading-normal">
+                  Real-time memory monitor confirming sub-25MB idle consumption and live PID tracking for every running daemon.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-100/60 border border-white/5 space-y-1">
+                <span className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-sky-400" />
+                  Independent Service Switches
+                </span>
+                <p className="text-slate-400 text-[11px] leading-normal">
+                  Granular control switches and restart buttons for Nginx (:80), PHP-CGI (:9000), MariaDB (:3306), and Mailpit (:8025).
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-surface-100/60 border border-white/5 space-y-1">
+                <span className="font-semibold text-white flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                  Live Console & VHosts Tabs
+                </span>
+                <p className="text-slate-400 text-[11px] leading-normal">
+                  Inspect real-time service logs, view auto-detected *.test domains, and toggle PHP extensions dynamically.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Category 1: Core Process Architecture & Stability */}
       <section id="job-objects" className="space-y-8">

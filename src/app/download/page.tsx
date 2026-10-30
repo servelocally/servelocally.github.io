@@ -126,6 +126,35 @@ export default function DownloadPage() {
             Verify in Windows PowerShell: <code className="text-slate-400">Get-FileHash .\ServeLocally-Setup.exe -Algorithm SHA256</code>
           </p>
         </div>
+
+        {/* Visual Preview of Installed Interface */}
+        <div className="pt-4 border-t border-white/5 flex flex-col md:flex-row items-center gap-6">
+          <div className="w-full md:w-48 shrink-0 flex justify-center">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-xl max-w-[200px]">
+              <Image
+                src="/images/servelocally-app-ui.png"
+                alt="Serve Locally installed interface preview"
+                width={562}
+                height={779}
+                quality={90}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+          <div className="space-y-2 text-xs text-slate-300">
+            <div className="font-semibold text-white text-sm flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>What&apos;s Included in the 64.1 MB Package:</span>
+            </div>
+            <ul className="space-y-1 text-slate-400 list-disc list-inside text-xs">
+              <li>Portable Nginx 1.26 Stable with dynamic vhost compiler</li>
+              <li>PHP 8.3 NTS FastCGI with pre-configured extensions (pdo, curl, mbstring, openssl)</li>
+              <li>MariaDB 10.11 Server configured with low-memory 32MB buffer pool</li>
+              <li>Mailpit SMTP & Web Inbox Sandbox for local email debugging</li>
+              <li>Zero background Windows Services, zero registry alterations</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       {/* Release Notes */}

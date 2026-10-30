@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Download,
   Terminal,
@@ -177,6 +178,29 @@ export default function GettingStartedPage() {
             <div>MariaDB: :3306</div>
             <div>Mailpit: :8025 / :1025</div>
           </div>
+        </div>
+
+        {/* Visual Screenshot of Running Dashboard */}
+        <div className="my-6 p-4 sm:p-6 rounded-2xl bg-[#090d18] border border-white/10 space-y-3">
+          <div className="flex items-center justify-between text-xs text-slate-400 border-b border-white/5 pb-2">
+            <span className="font-semibold text-white">Figure: Serve Locally Windows 11 Running Interface</span>
+            <span className="font-mono text-emerald-400">RAM: 12.5 MB Active</span>
+          </div>
+          <div className="flex justify-center py-2">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 max-w-[360px] shadow-2xl">
+              <Image
+                src="/images/servelocally-app-ui.png"
+                alt="Serve Locally desktop app interface on Windows 11 with MariaDB online and active PHP 8.3"
+                width={562}
+                height={779}
+                quality={95}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+          <p className="text-[11px] text-slate-400 text-center">
+            The Fluent dark interface displays active services, real-time memory usage, and quick links to WebRoot and phpMyAdmin.
+          </p>
         </div>
       </section>
 
