@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import {
   Download,
@@ -17,8 +16,12 @@ import {
   HardDrive,
   Sparkles,
   Server,
-  Workflow,
+  Lock,
   ExternalLink,
+  Github,
+  Linkedin,
+  User,
+  Check,
 } from "lucide-react";
 import { HeroShowcase } from "@/components/HeroShowcase";
 import { ComparisonTable } from "@/components/ComparisonTable";
@@ -33,6 +36,8 @@ export const metadata = {
 };
 
 export default function HomePage() {
+  const sha256 = "43EA35DFE4F8DD8DAF743E5A00945ED29894E8BDF10A472EAB510A891F814982";
+
   return (
     <div className="space-y-24 sm:space-y-32 pb-20">
       <FaqStructuredData faqs={FAQS} />
@@ -49,12 +54,12 @@ export default function HomePage() {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="font-medium">Serve Locally v1.0 Released</span>
             <span className="text-slate-500">•</span>
-            <Link
-              href="/download"
+            <a
+              href="#download"
               className="text-brand-300 hover:text-white font-medium flex items-center gap-1"
             >
               Get Installer <ArrowRight className="w-3 h-3" />
-            </Link>
+            </a>
           </div>
 
           {/* Main Title & Subtitle */}
@@ -79,21 +84,32 @@ export default function HomePage() {
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <Link
-              href="/download"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-sky-400 text-slate-950 font-bold text-sm tracking-wide shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all"
+            <a
+              href="#download"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm tracking-wide shadow-xl shadow-sky-500/25 border border-sky-400/30 hover:shadow-sky-500/40 active:scale-95 transition-all relative overflow-hidden group"
             >
-              <Download className="w-4 h-4" />
-              <span>Download for Windows (64-bit)</span>
-            </Link>
+              <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <Download className="w-4 h-4 text-white transition-transform duration-200 group-hover:translate-y-0.5" />
+              <span className="text-white">Download for Windows (64-bit)</span>
+            </a>
 
-            <Link
-              href="/features"
+            <a
+              href="#features"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface-100/80 border border-white/10 hover:border-white/20 text-slate-200 hover:text-white font-semibold text-sm backdrop-blur-sm transition-all"
             >
               <span>Explore Features</span>
               <ArrowRight className="w-4 h-4 text-slate-400" />
-            </Link>
+            </a>
+
+            <a
+              href="https://khushwinder-dev.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white font-medium text-sm transition-all"
+            >
+              <span>Contact Developer</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-60" />
+            </a>
           </div>
 
           {/* Architecture Badges */}
@@ -119,14 +135,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. KEY BENEFITS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 2. KEY BENEFITS & FEATURES */}
+      <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
             Engineered for Developers
           </h2>
           <p className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
-            Why developers are switching from legacy stacks
+            Why developers are switching to Serve Locally
           </p>
           <p className="text-slate-400 text-sm sm:text-base">
             Modern development demands speed and cleanliness. Traditional monolithic
@@ -234,8 +250,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. HOW IT WORKS (3 STEPS) */}
+      {/* 3. VERIFIED SUPPORTED COMPONENTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
+            Verified Stack Components
+          </h2>
+          <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Only real, confirmed technologies
+          </p>
+          <p className="text-slate-400 text-xs sm:text-sm">
+            Everything is isolated in portable binaries without external dependencies.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">🌐</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">Nginx</div>
+            <div className="text-[11px] text-brand-300 font-mono">v1.26 Stable</div>
+            <div className="text-[10px] text-slate-500">Port :80</div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">🐘</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">PHP FastCGI</div>
+            <div className="text-[11px] text-brand-300 font-mono">8.1 / 8.2 / 8.3 / 8.4</div>
+            <div className="text-[10px] text-slate-500">Port :9000</div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">🐬</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">MariaDB</div>
+            <div className="text-[11px] text-brand-300 font-mono">v10.11 x64</div>
+            <div className="text-[10px] text-slate-500">Port :3306</div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">📬</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">Mailpit</div>
+            <div className="text-[11px] text-brand-300 font-mono">SMTP & Web UI</div>
+            <div className="text-[10px] text-slate-500">:1025 / :8025</div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">🗄️</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">Database UI</div>
+            <div className="text-[11px] text-brand-300 font-mono">phpMyAdmin & Adminer</div>
+            <div className="text-[10px] text-slate-500">Pre-configured</div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
+            <span className="text-2xl">🦀</span>
+            <div className="font-semibold text-white text-xs sm:text-sm">Rust & Tauri v2</div>
+            <div className="text-[11px] text-brand-300 font-mono">Job Object Supervisor</div>
+            <div className="text-[10px] text-slate-500">Native NT Kernel</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. HOW IT WORKS (3 STEPS) */}
+      <section id="how-it-works" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#0e1628] to-[#0a0f1c] border border-white/10 shadow-2xl space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
@@ -294,68 +369,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. VERIFIED SUPPORTED COMPONENTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
-            Verified Stack Components
-          </h2>
-          <p className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
-            Only real, confirmed technologies
-          </p>
-          <p className="text-slate-400 text-xs sm:text-sm">
-            Everything is isolated in portable binaries without external dependencies.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">🌐</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">Nginx</div>
-            <div className="text-[11px] text-brand-300 font-mono">v1.26 Stable</div>
-            <div className="text-[10px] text-slate-500">Port :80</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">🐘</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">PHP FastCGI</div>
-            <div className="text-[11px] text-brand-300 font-mono">8.1 / 8.2 / 8.3 / 8.4</div>
-            <div className="text-[10px] text-slate-500">Port :9000</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">🐬</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">MariaDB</div>
-            <div className="text-[11px] text-brand-300 font-mono">v10.11 x64</div>
-            <div className="text-[10px] text-slate-500">Port :3306</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">📬</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">Mailpit</div>
-            <div className="text-[11px] text-brand-300 font-mono">SMTP & Web UI</div>
-            <div className="text-[10px] text-slate-500">:1025 / :8025</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">🗄️</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">Database UI</div>
-            <div className="text-[11px] text-brand-300 font-mono">phpMyAdmin & Adminer</div>
-            <div className="text-[10px] text-slate-500">Pre-configured</div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-surface-100/60 border border-white/5 text-center space-y-1">
-            <span className="text-2xl">🦀</span>
-            <div className="font-semibold text-white text-xs sm:text-sm">Rust & Tauri v2</div>
-            <div className="text-[11px] text-brand-300 font-mono">Job Object Supervisor</div>
-            <div className="text-[10px] text-slate-500">Native NT Kernel</div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. COMPARISON TABLE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+      {/* 5. COMPARISON & REQUIREMENTS */}
+      <section id="comparison" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-12">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
             Side-by-Side Comparison
           </h2>
@@ -368,10 +384,8 @@ export default function HomePage() {
         </div>
 
         <ComparisonTable />
-      </section>
 
-      {/* 6. SYSTEM REQUIREMENTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* System Requirements Grid */}
         <div className="p-6 sm:p-8 rounded-2xl bg-surface-100/60 border border-white/10 space-y-6">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-brand-500/10 text-brand-400">
@@ -415,8 +429,210 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. FAQ ACCORDION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 6. DEDICATED OFFICIAL DOWNLOAD SECTION */}
+      <section id="download" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-[#0f172a] to-[#090d18] border border-brand-400/30 shadow-2xl space-y-8 overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-2xl bg-brand-500/15 border border-brand-400/40 flex items-center justify-center shrink-0 shadow-lg shadow-brand-500/10">
+                <Image
+                  src="/images/logo.png"
+                  alt="Serve Locally"
+                  width={36}
+                  height={36}
+                  className="w-9 h-9 object-contain"
+                />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
+                    Serve Locally v1.0.0
+                  </h2>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+                    Stable
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Official Windows 64-bit NSIS Setup Package
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a
+                href="/downloads/ServeLocally-Setup.exe"
+                download="ServeLocally-Setup.exe"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/25 border border-sky-400/30 hover:shadow-sky-500/40 active:scale-95 transition-all text-center relative overflow-hidden group"
+              >
+                <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                <Download className="w-4 h-4 text-white transition-transform duration-200 group-hover:translate-y-0.5" />
+                <span className="text-white">Download Installer (64.1 MB)</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Release Metadata Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+            <div className="p-3.5 rounded-xl bg-surface-100/70 border border-white/5 space-y-1">
+              <span className="text-slate-500">File Name:</span>
+              <div className="text-white font-semibold truncate">ServeLocally-Setup.exe</div>
+            </div>
+            <div className="p-3.5 rounded-xl bg-surface-100/70 border border-white/5 space-y-1">
+              <span className="text-slate-500">File Size:</span>
+              <div className="text-white font-semibold">64.1 MB (67,235,271 bytes)</div>
+            </div>
+            <div className="p-3.5 rounded-xl bg-surface-100/70 border border-white/5 space-y-1">
+              <span className="text-slate-500">Architecture:</span>
+              <div className="text-white font-semibold">Windows 10/11 x64</div>
+            </div>
+            <div className="p-3.5 rounded-xl bg-surface-100/70 border border-white/5 space-y-1">
+              <span className="text-slate-500">Release Date:</span>
+              <div className="text-white font-semibold">October 2026</div>
+            </div>
+          </div>
+
+          {/* Cryptographic SHA-256 Checksum */}
+          <div className="p-4 rounded-xl bg-[#060a12] border border-white/10 space-y-2">
+            <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span className="flex items-center gap-1.5 text-slate-300 font-semibold">
+                <Lock className="w-3.5 h-3.5 text-brand-400" />
+                SHA-256 Authenticity Checksum
+              </span>
+              <span className="text-[11px] text-slate-500">Cryptographically Verified</span>
+            </div>
+            <div className="p-2.5 rounded-lg bg-black/40 font-mono text-[11px] sm:text-xs text-brand-300 break-all select-all border border-white/5">
+              {sha256}
+            </div>
+            <p className="text-[11px] text-slate-500">
+              Verify in Windows PowerShell: <code className="text-slate-400">Get-FileHash .\ServeLocally-Setup.exe -Algorithm SHA256</code>
+            </p>
+          </div>
+
+          {/* Package Inclusions Preview */}
+          <div className="pt-4 border-t border-white/5 space-y-2 text-xs text-slate-300">
+            <div className="font-semibold text-white text-sm flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>What&apos;s Included in the 64.1 MB Package:</span>
+            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-400 text-xs">
+              <li className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Portable Nginx 1.26 Stable with dynamic vhost compiler</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>PHP 8.3 NTS FastCGI with pre-configured extensions</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>MariaDB 10.11 Server configured with 32MB low buffer pool</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Mailpit SMTP & Web Inbox Sandbox for local email debugging</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. ABOUT THE CREATOR & DIRECT CONTACT */}
+      <section id="about" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-8">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-surface-100 via-[#0e1628] to-surface-100 border border-white/10 shadow-2xl space-y-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-white/10">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-400/20 text-xs font-mono text-brand-300 mb-2">
+                <User className="w-3.5 h-3.5" />
+                <span>Creator & Engineer</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                About the Developer
+              </h2>
+              <p className="text-sm text-slate-400">
+                Created by <strong className="text-white">Khushwinder</strong> — Full Stack & Systems Developer
+              </p>
+            </div>
+
+            {/* Direct Contact Button */}
+            <a
+              href="https://khushwinder-dev.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 via-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/25 border border-sky-400/30 hover:shadow-sky-500/40 active:scale-95 transition-all text-center relative overflow-hidden group shrink-0"
+            >
+              <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <Mail className="w-4 h-4 text-white" />
+              <span>Contact Khushwinder</span>
+              <ExternalLink className="w-3.5 h-3.5 text-white/80" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <div className="space-y-3">
+              <h3 className="font-semibold text-white text-base">The Philosophy</h3>
+              <p className="text-slate-400">
+                For over two decades, web developers on Windows have struggled with monolithic stacks that leave orphan background processes locking ports, bloat system memory, and clutter registry keys.
+              </p>
+              <p className="text-slate-400">
+                Serve Locally was built using <strong className="text-slate-200">Rust, Tauri v2</strong>, and <strong className="text-slate-200">Win32 NT Job Objects</strong> to give developers a featherweight, rock-solid alternative with zero zombie processes and an idle footprint under 25 MB RAM.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="font-semibold text-white text-base">Connect & Inquiries</h3>
+              <p className="text-slate-400">
+                Have a question, feedback, or collaboration inquiry? You can reach me directly through my portfolio website, social profiles, or email:
+              </p>
+
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a
+                  href="https://khushwinder-dev.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  <Globe className="w-3.5 h-3.5 text-brand-400" />
+                  <span>Portfolio</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+
+                <a
+                  href="https://github.com/Khushwinder-Dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  <Github className="w-3.5 h-3.5 text-brand-400" />
+                  <span>GitHub</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/khushwinder-dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-brand-400" />
+                  <span>LinkedIn</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
+
+                <a
+                  href="mailto:Khushwinder.dev@gmail.com"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-brand-400" />
+                  <span>Khushwinder.dev@gmail.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ ACCORDION */}
+      <section id="faq" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-10">
           <h2 className="text-xs font-semibold uppercase tracking-wider text-brand-400 font-mono">
             Frequently Asked Questions
@@ -429,7 +645,7 @@ export default function HomePage() {
         <FaqAccordion />
       </section>
 
-      {/* 8. FINAL DOWNLOAD CTA */}
+      {/* 9. FINAL DOWNLOAD CTA BANNER */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl p-8 sm:p-14 bg-gradient-to-r from-brand-600/20 via-sky-500/10 to-brand-700/20 border border-brand-400/30 text-center space-y-6 overflow-hidden shadow-2xl">
           <div className="w-16 h-16 mx-auto rounded-2xl bg-brand-500/20 border border-brand-400/40 flex items-center justify-center shadow-lg shadow-brand-500/20">
@@ -452,21 +668,25 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <Link
-              href="/download"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-sky-400 text-slate-950 font-bold text-sm shadow-xl shadow-brand-500/25 hover:brightness-110 active:scale-95 transition-all"
+            <a
+              href="/downloads/ServeLocally-Setup.exe"
+              download="ServeLocally-Setup.exe"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 via-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-xl shadow-sky-500/25 border border-sky-400/30 hover:shadow-sky-500/40 active:scale-95 transition-all relative overflow-hidden group"
             >
-              <Download className="w-4 h-4" />
+              <span className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <Download className="w-4 h-4 text-white transition-transform duration-200 group-hover:translate-y-0.5" />
               <span>Download Serve Locally v1.0 (64.1 MB)</span>
-            </Link>
+            </a>
 
-            <Link
-              href="/docs/getting-started"
+            <a
+              href="https://khushwinder-dev.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-sm transition-all"
             >
-              <span>Read Documentation</span>
-              <ArrowRight className="w-4 h-4 text-slate-300" />
-            </Link>
+              <span>Contact Developer</span>
+              <ExternalLink className="w-4 h-4 text-slate-300" />
+            </a>
           </div>
 
           <div className="text-[11px] text-slate-400 font-mono pt-2">
@@ -477,4 +697,3 @@ export default function HomePage() {
     </div>
   );
 }
-

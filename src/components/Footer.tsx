@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Linkedin, Globe, Mail, Heart, Terminal, ShieldCheck, Cpu } from "lucide-react";
+import { Github, Linkedin, Globe, Mail, ShieldCheck, Cpu, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
@@ -44,97 +44,84 @@ export function Footer() {
           {/* Product Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-              Product
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link
-                  href="/features"
-                  className="hover:text-brand-300 transition-colors"
-                >
+                <a href="#features" className="hover:text-brand-300 transition-colors">
                   Features Overview
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/download"
-                  className="hover:text-brand-300 transition-colors"
-                >
-                  Download Installer
-                </Link>
+                <a href="#how-it-works" className="hover:text-brand-300 transition-colors">
+                  How It Works
+                </a>
               </li>
               <li>
-                <Link
-                  href="/features#job-objects"
-                  className="hover:text-brand-300 transition-colors"
-                >
-                  Win32 Job Objects
-                </Link>
+                <a href="#comparison" className="hover:text-brand-300 transition-colors">
+                  Comparison vs XAMPP
+                </a>
               </li>
               <li>
-                <Link
-                  href="/features#vhosts"
-                  className="hover:text-brand-300 transition-colors"
-                >
-                  Dynamic *.test VHosts
-                </Link>
+                <a href="#download" className="hover:text-brand-300 transition-colors">
+                  Download v1.0 (64-bit)
+                </a>
               </li>
               <li>
-                <Link
-                  href="/features#php-manager"
-                  className="hover:text-brand-300 transition-colors"
-                >
-                  Multi-PHP Manager
-                </Link>
+                <a href="#faq" className="hover:text-brand-300 transition-colors">
+                  Frequently Asked Questions
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Documentation Links */}
+          {/* Resources & Contact */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-              Documentation
+              Developer & Support
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link
-                  href="/docs/getting-started"
-                  className="hover:text-brand-300 transition-colors"
+                <a
+                  href="https://khushwinder-dev.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-300 transition-colors inline-flex items-center gap-1"
                 >
-                  Getting Started Guide
-                </Link>
+                  <span>Contact Developer</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
               </li>
               <li>
-                <Link
-                  href="/docs/getting-started#installation"
-                  className="hover:text-brand-300 transition-colors"
+                <a
+                  href="https://github.com/Khushwinder-Dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-300 transition-colors inline-flex items-center gap-1"
                 >
-                  Installation Steps
-                </Link>
+                  <span>GitHub Profile</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
               </li>
               <li>
-                <Link
-                  href="/docs/getting-started#first-project"
-                  className="hover:text-brand-300 transition-colors"
+                <a
+                  href="https://www.linkedin.com/in/khushwinder-dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-300 transition-colors inline-flex items-center gap-1"
                 >
-                  Deploying Local Projects
-                </Link>
+                  <span>LinkedIn Profile</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </a>
               </li>
               <li>
-                <Link
-                  href="/docs/getting-started#database"
-                  className="hover:text-brand-300 transition-colors"
+                <a
+                  href="mailto:Khushwinder.dev@gmail.com"
+                  className="hover:text-brand-300 transition-colors inline-flex items-center gap-1"
                 >
-                  MariaDB & phpMyAdmin
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/docs/getting-started#troubleshooting"
-                  className="hover:text-brand-300 transition-colors"
-                >
-                  Troubleshooting & FAQs
-                </Link>
+                  <span>Direct Email</span>
+                  <Mail className="w-3 h-3 opacity-60" />
+                </a>
               </li>
             </ul>
           </div>
@@ -151,7 +138,7 @@ export function Footer() {
               </p>
               <div className="flex items-center gap-3 pt-2">
                 <a
-                  href="https://khushwinder-dev.github.io"
+                  href="https://khushwinder-dev.github.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500/20 hover:text-brand-300 transition-colors"
@@ -229,17 +216,23 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span>© {new Date().getFullYear()} Serve Locally. Developed by Khushwinder.</span>
           </div>
           <div className="flex items-center gap-6">
-            <Link href="/about" className="hover:text-slate-400 transition-colors">
+            <a href="#about" className="hover:text-slate-400 transition-colors">
               About Project
-            </Link>
-            <Link href="/contact" className="hover:text-slate-400 transition-colors">
-              Contact & Inquiries
-            </Link>
+            </a>
+            <a
+              href="https://khushwinder-dev.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-400 transition-colors inline-flex items-center gap-1"
+            >
+              <span>Contact Developer</span>
+              <ExternalLink className="w-3 h-3 opacity-60" />
+            </a>
             <span className="font-mono text-slate-600">v1.0.0 (Win64)</span>
           </div>
         </div>
@@ -247,4 +240,3 @@ export function Footer() {
     </footer>
   );
 }
-
