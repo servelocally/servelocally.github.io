@@ -1,0 +1,21 @@
+{
+  "name": "Serve Locally — Ultra-Lightweight Local Server for Windows",
+  "short_name": "ServeLocally",
+  "description": "Modern, bloat-free local web development environment for Windows 11 & 10. Runs Nginx, multi-version PHP, MariaDB, and Mailpit under 25 MB RAM.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
