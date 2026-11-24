@@ -133,6 +133,12 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <head>
         <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9193773194117466"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-KKCTDDG3"
           strategy="afterInteractive"
         />
