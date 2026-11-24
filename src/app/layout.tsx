@@ -122,6 +122,9 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
+  other: {
+    "google-adsense-account": "ca-pub-9193773194117466",
+  },
 };
 
 export default function RootLayout({
@@ -132,11 +135,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
-        <Script
+        <meta name="google-adsense-account" content="ca-pub-9193773194117466" />
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9193773194117466"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-KKCTDDG3"
