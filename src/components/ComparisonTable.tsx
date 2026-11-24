@@ -70,7 +70,7 @@ export function ComparisonTable() {
 
   return (
     <div className="w-full overflow-x-auto rounded-2xl border border-white/10 bg-[#0a0f1c]/80 backdrop-blur-md shadow-2xl">
-      <table className="w-full text-left border-collapse text-xs sm:text-sm">
+      <table className="w-full text-left border-collapse text-xs sm:text-sm min-w-[560px]">
         <thead>
           <tr className="border-b border-white/10 bg-[#0e1628]/90">
             <th className="py-4 px-4 sm:px-6 font-semibold text-slate-300">

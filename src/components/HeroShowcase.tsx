@@ -24,11 +24,11 @@ export function HeroShowcase() {
     <div className="w-full max-w-5xl mx-auto pt-6 space-y-6">
       {/* View Switcher Pill */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <div className="inline-flex p-1 rounded-xl bg-surface-100/90 border border-white/10 backdrop-blur-md shadow-xl">
+        <div className="inline-flex flex-wrap items-center justify-center p-1 rounded-xl bg-surface-100/90 border border-white/10 backdrop-blur-md shadow-xl max-w-full gap-1 sm:gap-0">
           <button
             type="button"
             onClick={() => setViewMode("real")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "real"
                 ? "bg-gradient-to-r from-brand-500 to-sky-400 text-slate-950 shadow-md font-bold"
                 : "text-slate-400 hover:text-white"
@@ -50,7 +50,7 @@ export function HeroShowcase() {
           <button
             type="button"
             onClick={() => setViewMode("simulator")}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "simulator"
                 ? "bg-gradient-to-r from-brand-500 to-sky-400 text-slate-950 shadow-md font-bold"
                 : "text-slate-400 hover:text-white"

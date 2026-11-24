@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -131,6 +132,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-KKCTDDG3"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
         <WebsiteStructuredData />
         <SoftwareStructuredData />
         <BreadcrumbStructuredData />
@@ -138,8 +150,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[#080c14] text-slate-100 min-h-screen flex flex-col selection:bg-brand-500 selection:text-slate-950`}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KKCTDDG3"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <Navbar />
-        <main className="flex-1 pt-20">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
       </body>

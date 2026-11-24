@@ -43,16 +43,16 @@ export default function HomePage() {
   const sha256 = "DBDC7FD99ECACDBE522CDF8E59CE74EAFF6EE959743535E77F6888A4861B8FAA";
 
   return (
-    <div className="space-y-24 sm:space-y-32 pb-20">
+    <div className="space-y-20 sm:space-y-28 pb-20">
       <FaqStructuredData faqs={FAQS} />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient Background Glows */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-sky-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Top Pill Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-100/80 border border-white/10 text-xs text-slate-300 backdrop-blur-md shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -68,18 +68,18 @@ export default function HomePage() {
 
           {/* Main Title & Subtitle */}
           <div className="space-y-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] sm:leading-[1.1] text-balance break-words">
               Fast, Lightweight Local Server for Windows.{" "}
               <span className="bg-gradient-to-r from-brand-300 via-sky-400 to-brand-500 bg-clip-text text-transparent">
                 Zero Zombie Processes.
               </span>
             </h1>
-            <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed text-pretty">
               The modern <strong className="text-white font-semibold">XAMPP &amp; Laragon alternative</strong> for Windows 11 &amp; 10.
               Built natively with Tauri v2 and Rust for{" "}
               <strong className="text-brand-300 font-semibold">&lt; 25 MB idle RAM</strong>,
               automated{" "}
-              <code className="text-brand-300 font-mono text-sm px-1.5 py-0.5 rounded bg-white/5 border border-white/10">
+              <code className="text-brand-300 font-mono text-xs sm:text-sm px-1.5 py-0.5 rounded bg-white/5 border border-white/10">
                 *.test
               </code>{" "}
               virtual hosts, multi-version PHP, and zero locked ports.
@@ -117,7 +117,7 @@ export default function HomePage() {
           </div>
 
           {/* Architecture Badges */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-400 font-mono">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               Win32 Job Object Isolation
